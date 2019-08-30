@@ -1,5 +1,24 @@
+import sys
 import string 
 import re
+import os
+import subprocess
+textInput =""
+textOutput = ""
+
+def fileFinder():
+	global textInput
+	global textOutput
+	if len(sys.argv) is not 3:
+		print("Correct usage: wordCount.py <input text file> <output file>")
+		exit()
+	textInput = sys.argv[1]
+	textOutput = sys.argv[2]
+	if not os.path.exists(textInput):
+		print("text file input %s doesn't exist! Exiting" %textInput)
+		exit()
+
+
 #Reads file, removes punctuation and returns a list of words in alphabetical order, and in lowercase
 def fileReader(file):
 	try:
@@ -29,7 +48,7 @@ def wordCounter(words):
 #Writes the counted words to a file 
 def fileWriter(countedWords):
 	try:
-		file = open("countedWords.txt","w+")
+		file = open(textOutput,"w+")
 		for x in countedWords:
 			file.write(x + " " + str(countedWords[x]) + "\n")
 	finally:
@@ -40,5 +59,6 @@ def fileWriter(countedWords):
 
 #main method
 if __name__=="__main__":
-    organizedWords=fileReader("speech.txt")
-    fileWriter(wordCounter(organizedWords))
+	fileFinder()
+	organizedWords=fileReader(textInput)
+	fileWriter(wordCounter(organizedWords))
