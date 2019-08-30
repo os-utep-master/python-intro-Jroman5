@@ -1,9 +1,10 @@
 
-#Reads file and places each line as a part of a list
+#Reads file and places each word as part of a list
 def fileReader(file):
     text = open(file,"r")
-    words = text.readlines()
-    for x in words:
+    words = text.read()
+    seperatedWords = words.split()
+    for x in seperatedWords:
     	print(x)
     text.close()
 
