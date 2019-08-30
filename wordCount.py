@@ -26,6 +26,7 @@ def wordCounter(words):
 			wordCount[x] = 1
 	return wordCount
 
+#Writes the counted words to a file 
 def fileWriter(countedWords):
 	try:
 		file = open("countedWords.txt","w+")
