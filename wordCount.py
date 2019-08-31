@@ -2,9 +2,8 @@ import sys
 import string 
 import re
 import os
-import subprocess
 textInput =""
-textOutput = ""
+textOutput =""
 
 def fileFinder():
 	global textInput
