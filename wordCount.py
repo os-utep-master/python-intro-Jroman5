@@ -23,7 +23,7 @@ def fileReader(file):
 	try:
 		text = open(file,"r")
 		words = text.read()
-		pattern = "[\"!?;:,.-]"
+		pattern = "[\"\'!?;:,.-]"
 		#table = words.maketrans("!;',.?:\"-","         ")
 		#words = words.translate(table)
 		words = re.sub(pattern," ",words)
